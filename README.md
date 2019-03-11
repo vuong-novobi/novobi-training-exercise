@@ -14,6 +14,8 @@ Technical Requirements
 ----------------------
 #### Initial
 - New module: **purchase_order_archive**
+- Odoo V12
+- Follow [Odoo Guidelines](https://www.odoo.com/documentation/12.0/reference/guidelines.html)
 #### Model
 - Add new field: **active (boolean, default=True)**
 - Only allow archive the purchase orders with current status is **locked** or **canceled**
