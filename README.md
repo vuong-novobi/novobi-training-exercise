@@ -33,10 +33,13 @@ Technical Requirements
 - Add cron job for daily checking old purchase order with **lifespan** and archive those orders if the **_current date > write_date + lifespan_**
     
     
-#### Controller (TBD)
-- Adding route allows archive multiple purchase orders
+#### Controller
+- Add route allows archive multiple purchase orders: `type='json', auth='public', csrf=False`
 
 #### Widget (TBD)
 - TBD
 
 
+How to submit your works?
+-------------------------
+Create your own repository privately and add [haidinh-novobi](https://github.com/haidinh-novobi) as a contributor.
