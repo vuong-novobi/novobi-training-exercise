@@ -78,6 +78,7 @@ Technical Requirements
 }
 ```
 
+Hint: Using Postman for testing.
 
 #### Widget
 - Define new widget `us_phone` for showing phone number as US domestic format.
