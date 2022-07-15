@@ -14,7 +14,7 @@ Technical Requirements
 ----------------------
 #### Initial
 - New module: **purchase_order_enhancement**.
-- Odoo V12.
+- Odoo V15.
 - Follow [Odoo Guidelines](https://www.odoo.com/documentation/12.0/reference/guidelines.html).
 
 #### Model
