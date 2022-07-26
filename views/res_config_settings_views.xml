@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="cron_job_lifespan" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="name">res.config.settings.cronjob</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+            <field name="arch" type="xml">
+            <xpath expr="//div[@name='matrix_setting_container']" position="after">
+                <h2>Cron Job</h2>
+                <div class="row mt16 o_settings_container" name="cronjob_setting_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="row">
+                            <label string="Lifespan (days)" for="default_lifespan" class="col-lg-3 o_light_label"/>
+                            <field name="default_lifespan" class="oe_inline"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>  
+</odoo>

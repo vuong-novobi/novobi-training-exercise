@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="archive_old_order_view_form" model="ir.ui.view">
+        <field name="name">archive.old.order.view.form</field>
+        <field name="model">archive.old.order</field>
+        <field name="arch" type="xml">
+            <form string="Archive Old Order" model="ir.actions.act_window">
+            <field name="purchase_order_list"/>
+                <footer>
+                    <button name='action_archive_old_order' string="Archive" class='btn-primary' type='object'></button>
+                    <button string="Cancel" class='btn-secondary' special='cancel'></button>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_archive_old_order" model="ir.actions.act_window">
+        <field name="name">Archive Old Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">archive.old.order</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="archive_old_order_view_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_archive_old_order" name="Archive Old Order" parent='purchase.menu_purchase_config' action='action_archive_old_order'/>
+</odoo>

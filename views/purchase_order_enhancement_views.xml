@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="purchase_order_archive_tree" model="ir.actions.server">
+        <field name="name">Archive Purchase Order</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_purchase_order"/>
+        <field name="binding_model_id" ref="model_purchase_order"/>
+        <field name="groups_id" eval="[(4,ref('purchase.group_purchase_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+                action = records.archive_purchase_order()
+        </field>
+
+    </record>
+
+    <record id="purchase_order_archive_form" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="archive_purchase_order" type="object"
+                        attrs="{'invisible': ['|',('state','not in',['done','cancel']), ('active', '=', False)]}"
+                        groups= "purchase.group_purchase_manager"
+                        class="oe_stat_button" icon="fa-archive">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Archive</span>
+                        </div>
+                </button>
+                <field name='active' invisible='1'/>
+                <button name="unarchive_purchase_order" type="object"
+                        attrs="{'invisible': [('active','=', True)]}"
+                        groups= "purchase.group_purchase_manager"
+                        class="oe_stat_button" icon="fa-archive">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Unarchive</span>
+                        </div>
+                </button>
+            </xpath>
+
+            <xpath expr="//div[@name='reminder']" position="after">
+                <field name='USPhoneNumber' widget='us_phone_number'/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="purchase_order_archive_filter" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <record id="archived_purchase_order_kpis_tree" model="ir.ui.view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+            <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_status']" position="after">
+                <field name='active' invisible='1'/>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="decoration-muted">not active or state == 'cancel'</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
