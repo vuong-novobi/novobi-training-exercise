@@ -7,7 +7,7 @@
     'summary': 'Advanced features of Purchase Order',
     'sequence': 10,
     'description': """
-        ???
+        Advanced features of Purchase Order
     """,
     'website': 'https://www.odoo.com/app',
     'images' : [],
@@ -18,6 +18,7 @@
         'wizard/archive_old_order_view.xml',
         'report/purchase_order_enhancement_report.xml',
         'views/purchase_order_enhancement_views.xml',
+        'views/res_config_settings_views.xml',
     ],
     'demo': [],
     'assets': {
@@ -26,7 +27,7 @@
         ],
     },
     'installable': True,
-    'application': True,
+    'application': False,
     'auto_install': False,
     'license': 'LGPL-3',
 }

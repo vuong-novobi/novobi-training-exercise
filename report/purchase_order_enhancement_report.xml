@@ -8,4 +8,14 @@
             </div>
         </xpath>
     </template>
+
+    <record id="view_payment_term_pivot" model="ir.ui.view">
+        <field name="model">purchase.report</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='group_date_approve_month']" position="after">
+                <filter string="Payment Term" name="payment_term_id" context="{'group_by': 'payment_term_id'}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

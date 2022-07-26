@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<odoo> 
     <data noupdate='1'>
         <record id='old_purchase_order_auto_archive' model='ir.cron'>
             <field name='name'>Auto Archive Old Purchase Order</field>
